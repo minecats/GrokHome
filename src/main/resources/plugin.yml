@@ -1,0 +1,53 @@
+name: GrokHome
+version: 1.1
+main: com.minecats.grokhome.grokhome
+api-version: 1.20
+author: Minecats (updated by Grok)
+
+commands:
+  home:
+    description: Manage homes (player or admin mode)
+    usage: /home [sethome <name>|home [<name>]|listhomes|deletehome <name>] or /home <player> [list|tp <home>|del <home>]
+    aliases: [h]
+  firstjoin:
+    description: Manage first-join spawn location
+    usage: /firstjoin [set]
+    aliases: [fj]
+
+permissions:
+  grokhome.*:
+    description: All GrokHome permissions
+    default: op
+    children:
+      grokhome.sethome: true
+      grokhome.home: true
+      grokhome.listhomes: true
+      grokhome.delete: true
+      grokhome.unlimited: true
+      grokhome.limit.*: true
+      grokhome.admin.player: true
+      grokhome.admin.firstjoin: true
+  grokhome.sethome:
+    description: Set homes
+    default: true
+  grokhome.home:
+    description: Teleport to homes
+    default: true
+  grokhome.listhomes:
+    description: List homes
+    default: true
+  grokhome.delete:
+    description: Delete homes
+    default: true
+  grokhome.unlimited:
+    description: Unlimited homes
+    default: op
+  grokhome.limit.*:
+    description: Home limits (e.g., grokhome.limit.5)
+    default: op
+  grokhome.admin.player:
+    description: Admin player home management
+    default: op
+  grokhome.admin.firstjoin:
+    description: Manage first-join location
+    default: op

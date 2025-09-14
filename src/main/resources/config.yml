@@ -1,0 +1,18 @@
+# Database configuration
+database:
+  type: sqlite  # 'sqlite' or 'mysql'
+  mysql:
+    host: localhost
+    port: 3306
+    database: grokhome
+    username: root
+    password: ''
+
+# First join spawn location (server-wide)
+first-join:
+  world: world
+  x: 0.5
+  y: 100.0
+  z: 0.5
+  yaw: 0.0
+  pitch: 0.0
