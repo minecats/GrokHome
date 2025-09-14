@@ -102,3 +102,69 @@ first-join:
   z: 0.5
   yaw: 0.0
   pitch: 0.0
+```
+## Building the Plugin
+1. **Prerequisites**:
+   - Java 17
+   - Maven 3.9+
+2. **Clone Repository**:
+   ```
+   bash
+   git clone <repository-url>
+   cd GrokHome
+  
+3. **Build**:
+   ```
+    mvn clean package -U
+   ```
+   - Outputs target/grokhome-1.0-SNAPSHOT.jar.
+  
+4. **Copy to Server**:
+   - Move grokhome-1.0-SNAPSHOT.jar to plugins/.
+
+5. **Test on Server**:
+
+   - Deploy to Spigot 1.20+ (preferably 1.21).
+   Test scenarios:
+
+     - Admin (grokhome.admin.player): /home sethome home1 to home10 (succeeds), /home sethome home11 (fails with Max homes reached (10/10).).
+     - Non-Admin: /home sethome home1 (succeeds), /home sethome home2 (fails with Max homes reached (1/1).).
+     - Commands: /home home1, /home, /home listhomes, /home deletehome home1, /home ?, /home <player> list (admin).
+     - Permissions: Test with grokhome.limit.5, grokhome.unlimited.
+   - Check console logs for SQLException or Home count for UUID ...: X.
+
+6. **Verify Database**:
+
+   - Check homes.db (SQLite) or MySQL table.
+   - Use /home listhomes to confirm counts (10 for admins, 1 for non-admins).
+   - Ensure config.yml has valid database.type.
+
+## Troubleshooting
+
+**Markdown Rendering**:
+
+If the Markdown displays incorrectly, view in a Markdown-compatible editor (e.g., VS Code, GitHub) or confirm the file is saved as README.md.
+Verify the content includes all sections (e.g., "Building the Plugin" and "Troubleshooting") in proper Markdown format.
+
+
+**Plugin Issues**:
+
+- Check server logs for SQLException or Home count for UUID ...: X messages.
+- Verify homes.db (SQLite) or MySQL table contents.
+- Test with a fresh database:
+- Delete homes.db and restart the server to recreate it.
+
+Check permissions using:/lp user <name> permission
+
+(Requires LuckPerms plugin).
+If issues persist, provide:
+- Command used (e.g., /home sethome home1).
+- Server response (exact message).
+- Console logs (look for SQLException or Home count entries).
+- Output of /home listhomes.
+
+
+
+
+ 
+     
